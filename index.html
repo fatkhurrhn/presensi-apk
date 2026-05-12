@@ -1,321 +1,194 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>PresensiApps - Aplikasi Presensi Kegiatan Petani untuk Mandor</title>
+    <title>PresensiApps - Aplikasi Presensi Petani untuk Mandor</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome 6 (Free Icons) -->
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Customize Tailwind with your palette */
-        .bg-primary { background-color: #2C6E49; }
-        .bg-primary-dark { background-color: #1F5235; }
-        .bg-accent { background-color: #4C9A6F; }
-        .bg-soft { background-color: #8FC0A9; }
-        .bg-light { background-color: #C8E6D9; }
-        .bg-background { background-color: #F4F9F4; }
-        .text-primary { color: #2C6E49; }
-        .text-primary-dark { color: #1F5235; }
-        .text-accent { color: #4C9A6F; }
-        .text-soft { color: #8FC0A9; }
-        .text-gray-custom { color: #4B5563; }
-        .border-gray-custom { border-color: #D1DBCB; }
-        .bg-muted { background-color: #8E9A89; }
-
         .btn-primary {
             background-color: #2C6E49;
             transition: all 0.2s ease;
         }
+
         .btn-primary:hover {
             background-color: #1F5235;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(44,110,73,0.4);
+            box-shadow: 0 10px 20px -5px rgba(44, 110, 73, 0.4);
         }
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
+
+        .btn-outline {
+            border: 1px solid #2C6E49;
+            transition: all 0.2s ease;
         }
-        .footer-link {
-            transition: color 0.2s;
+
+        .btn-outline:hover {
+            background-color: #2C6E49;
+            color: white;
+            transform: translateY(-2px);
         }
-        .footer-link:hover {
-            color: #4C9A6F;
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="bg-background font-sans antialiased text-textGray">
 
-    <!-- Navbar / Header -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-borderGray">
-        <div class="container mx-auto px-5 py-3 flex justify-between items-center flex-wrap">
+<body class="bg-[#F4F9F4] font-sans antialiased">
+
+    <!-- Navbar Minimal -->
+    <!-- <nav class="bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b border-[#D1DBCB]">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <i class="fas fa-leaf text-primary text-2xl"></i>
-                <span class="font-bold text-xl text-primary-dark">Presensi<span class="text-accent">Apps</span></span>
+                <i class="fas fa-leaf text-[#2C6E49] text-2xl"></i>
+                <span class="font-bold text-xl text-[#1F5235]">Presensi<span class="text-[#4C9A6F]">Apps</span></span>
             </div>
-            <div class="flex space-x-6 text-sm md:text-base">
-                <a href="#features" class="hover:text-primary transition">Fitur</a>
-                <a href="#download" class="hover:text-primary transition">Download</a>
-                <a href="#about" class="hover:text-primary transition">Tentang</a>
+            <div class="flex space-x-6 text-sm text-[#4B5563]">
+                <a href="#fitur" class="hover:text-[#2C6E49] transition">Fitur</a>
+                <a href="#download" class="hover:text-[#2C6E49] transition">Download</a>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-background via-white to-light/30 py-16 md:py-24">
-        <div class="container mx-auto px-5 flex flex-col md:flex-row items-center gap-12">
-            <div class="flex-1 text-center md:text-left">
-                <div class="inline-block bg-light/60 rounded-full px-4 py-1 text-primary-dark text-sm font-semibold mb-4">
-                    <i class="fas fa-tractor mr-2"></i> Solusi Digital untuk Mandor
+    <!-- Hero Section Full -->
+    <section class="min-h-screen flex items-center justify-center px-6 py-20">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center">
+                <!-- Badge -->
+                <div
+                    class="inline-flex items-center gap-2 bg-[#C8E6D9]/60 backdrop-blur-sm rounded-full px-5 py-2 mb-6">
+                    <!-- <i class="fas fa-tractor text-[#2C6E49] text-sm"></i> -->
+                    <span class="text-[#1F5235] text-sm font-semibold tracking-wide">Solusi Digital untuk Mandor</span>
                 </div>
-                <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-primary-dark">
-                    Pantau Kegiatan <span class="text-accent">Petani</span><br>Real-time & Akurat
+
+                <!-- Main Heading -->
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-[#1F5235] mb-6">
+                    Presensi Kegiatan
+                    <span class="text-[#4C9A6F] relative inline-block">
+                        Petani
+                        <!-- <svg class="absolute bottom-2 left-0 w-full h-3 text-[#8FC0A9] -z-10" viewBox="0 0 200 10"
+                            fill="currentColor">
+                            <path d="M0,5 Q50,0 100,5 T200,5" stroke="currentColor" stroke-width="3" fill="none" />
+                        </svg> -->
+                    </span>
+                    <br>Lebih Mudah & Akurat
                 </h1>
-                <p class="text-gray-custom text-lg mt-6 max-w-xl mx-auto md:mx-0">
-                    PresensiApps membantu para mandor mencatat absensi, aktivitas harian, dan lokasi petani dengan mudah. Tingkatkan produktivitas tim lapanganmu.
+
+                <!-- Description -->
+                <p class="text-lg md:text-xl text-[#4B5563] max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Pantau absensi, lokasi, dan aktivitas harian petani secara real-time.
+                    Tingkatkan produktivitas tim lapanganmu dengan satu aplikasi.
                 </p>
-                <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#download" class="btn-primary text-white px-8 py-3 rounded-xl font-semibold inline-flex items-center justify-center gap-2 shadow-md">
-                        <i class="fab fa-android text-xl"></i> Download APK
-                        <i class="fas fa-arrow-right text-sm"></i>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <a href="#download"
+                        class="btn-primary text-white px-8 py-4 rounded-xl font-semibold inline-flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all text-lg">
+                        <i class="fab fa-android text-xl"></i>
+                        Download APK Sekarang
+                        <i class="fas fa-arrow-down text-sm"></i>
                     </a>
-                    <a href="#features" class="border border-primary/40 text-primary-dark bg-white px-8 py-3 rounded-xl font-semibold inline-flex items-center justify-center gap-2 hover:bg-light transition">
-                        <i class="fas fa-play-circle"></i> Lihat Demo
-                    </a>
                 </div>
-                <div class="flex items-center gap-4 justify-center md:justify-start mt-8 text-sm text-mutedGray">
-                    <span><i class="fas fa-check-circle text-primary"></i> Gratis</span>
-                    <span><i class="fas fa-shield-alt text-primary"></i> Keamanan Terjamin</span>
-                    <span><i class="fas fa-map-marker-alt text-primary"></i> Geolokasi</span>
-                </div>
-            </div>
-            <div class="flex-1 flex justify-center">
-                <div class="relative">
-                    <div class="absolute -inset-4 bg-gradient-to-r from-soft/30 to-accent/20 rounded-full blur-3xl"></div>
-                    <img src="https://placehold.co/400x800/f4f9f4/2C6E49?text=PresensiApps+Mockup" alt="App Mockup" class="relative rounded-3xl shadow-2xl border border-borderGray w-64 md:w-80">
-                </div>
-            </div>
-        </div>
-    </section>
+                
+                <!-- TAMBAHKAN INI: Info Versi -->
+                <p class="text-sm text-[#8E9A89] mb-8">
+                    <i class="fas fa-tag mr-1"></i> Versi 1.0.0
+                    <span class="mx-2">•</span>
+                    <i class="fas fa-database mr-1"></i> 60 MB
+                    <span class="mx-2">•</span>
+                    <i class="fab fa-android mr-1"></i> Android 6.0+
+                </p>
 
-    <!-- Fitur Unggulan -->
-    <section id="features" class="py-20 bg-white">
-        <div class="container mx-auto px-5">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-accent font-semibold tracking-wide">Fitur Andal</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-primary-dark mt-2">Mudah Digunakan,<br>Langsung Tepat Sasaran</h2>
-                <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-background p-6 rounded-2xl border border-borderGray card-hover transition duration-300">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-fingerprint text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary-dark">Absensi Real-time</h3>
-                    <p class="text-gray-custom mt-2">Petani melakukan check-in/out dengan foto & lokasi otomatis, data langsung terpusat.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="bg-background p-6 rounded-2xl border border-borderGray card-hover transition duration-300">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-chart-line text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary-dark">Rekap Aktivitas</h3>
-                    <p class="text-gray-custom mt-2">Lihat laporan harian, mingguan, dan bulanan kegiatan petani di kebun/lahan.</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="bg-background p-6 rounded-2xl border border-borderGray card-hover transition duration-300">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-map-marked-alt text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary-dark">Peta Area Kerja</h3>
-                    <p class="text-gray-custom mt-2">Integrasi peta digital, memudahkan pantau titik lokasi masing-masing petani.</p>
-                </div>
-                <!-- Card 4 -->
-                <div class="bg-background p-6 rounded-2xl border border-borderGray card-hover transition duration-300">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-database text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary-dark">Laporan Offline</h3>
-                    <p class="text-gray-custom mt-2">Bekerja di area tanpa sinyal? Data tersimpan dan tersinkronisasi otomatis.</p>
-                </div>
-                <!-- Card 5 -->
-                <div class="bg-background p-6 rounded-2xl border border-borderGray card-hover transition duration-300">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-users text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary-dark">Management Tim</h3>
-                    <p class="text-gray-custom mt-2">Kelola daftar petani, grup, dan mandor wilayah dengan mudah.</p>
-                </div>
-                <!-- Card 6 -->
-                <div class="bg-background p-6 rounded-2xl border border-borderGray card-hover transition duration-300">
-                    <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-cloud-upload-alt text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary-dark">Backup Cloud</h3>
-                    <p class="text-gray-custom mt-2">Data aman dengan sinkronisasi realtime ke server terenkripsi.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                <!-- Info Bar -->
+                <!-- <div class="flex flex-wrap justify-center gap-6 text-sm text-[#8E9A89] mb-12">
+                    <span><i class="fas fa-check-circle text-[#2C6E49] mr-2"></i> Gratis</span>
+                    <span><i class="fas fa-shield-alt text-[#2C6E49] mr-2"></i> Keamanan Terjamin</span>
+                    <span><i class="fas fa-map-marker-alt text-[#2C6E49] mr-2"></i> Geolokasi Real-time</span>
+                    <span><i class="fas fa-chart-line text-[#2C6E49] mr-2"></i> Laporan Langsung</span>
+                </div> -->
 
-    <!-- Statistik / Tujuan -->
-    <section class="bg-gradient-to-r from-primary/5 to-background py-16">
-        <div class="container mx-auto px-5 text-center">
-            <div class="flex flex-wrap justify-center gap-12">
-                <div>
-                    <div class="text-4xl font-black text-primary-dark">+87%</div>
-                    <div class="text-mutedGray mt-1">Efisiensi Absensi</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-black text-primary-dark">2.500+</div>
-                    <div class="text-mutedGray mt-1">Petani Terdaftar</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-black text-primary-dark">30+</div>
-                    <div class="text-mutedGray mt-1">Kelompok Tani Aktif</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-black text-primary-dark">4.9⭐</div>
-                    <div class="text-mutedGray mt-1">Rating Pengguna</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Download CTA Utama (APK) -->
-    <section id="download" class="py-20 px-5">
-        <div class="container mx-auto max-w-5xl bg-white rounded-3xl shadow-xl border border-borderGray overflow-hidden">
-            <div class="grid md:grid-cols-2 gap-0">
-                <div class="bg-primary p-8 md:p-12 text-white flex flex-col justify-center">
-                    <i class="fas fa-download text-4xl mb-4 text-soft"></i>
-                    <h2 class="text-3xl font-bold mb-3">Unduh Sekarang</h2>
-                    <p class="text-light/90 mb-6">Dapatkan file APK versi terbaru (v1.0). Ukuran hanya 60MB, kompatibel dengan Android 6.0+.</p>
-                    <div class="flex flex-col space-y-3 text-sm">
-                        <div class="flex items-center gap-2"><i class="fas fa-check-circle text-soft"></i> <span>Instalasi cepat & mudah</span></div>
-                        <div class="flex items-center gap-2"><i class="fas fa-shield-alt text-soft"></i> <span>100% bebas malware</span></div>
-                        <div class="flex items-center gap-2"><i class="fas fa-sync-alt text-soft"></i> <span>Update berkala via notifikasi app</span></div>
-                    </div>
-                </div>
-                <div class="p-8 md:p-12 bg-background/40 flex flex-col items-center justify-center text-center">
-                    <!-- Tombol download besar -->
-                    <a href="#" class="btn-primary text-white px-10 py-4 rounded-xl text-xl font-bold inline-flex items-center gap-3 shadow-lg transition-transform transform hover:scale-105">
-                        <i class="fab fa-android text-2xl"></i> Download APK
-                        <i class="fas fa-arrow-down"></i>
-                    </a>
-                    <p class="text-xs text-mutedGray mt-5">Versi release: app-release.apk | Build: 12 Mei 2026</p>
-                    <div class="flex gap-3 mt-6">
-                        <span class="bg-light text-primary-dark px-3 py-1 rounded-full text-xs font-medium"><i class="far fa-clock"></i> Real-time sync</span>
-                        <span class="bg-light text-primary-dark px-3 py-1 rounded-full text-xs font-medium"><i class="fas fa-leaf"></i> Ramah petani</span>
-                    </div>
-                    <!-- Catatan penting untuk pengguna -->
-                    <div class="mt-8 border-t border-borderGray pt-5 w-full text-left text-xs text-mutedGray">
-                        <i class="fas fa-info-circle text-primary"></i> Sebelum install, pastikan mengizinkan "Sumber Tidak Dikenal" di pengaturan Android.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tentang Aplikasi & Cara Install -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-5 max-w-4xl">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-primary-dark">Tentang PresensiApps</h2>
-                <div class="w-20 h-0.5 bg-accent mx-auto mt-3 mb-6"></div>
-                <p class="text-gray-custom">Dikembangkan untuk para mandor yang mengelola puluhan hingga ratusan petani. Aplikasi ini menggantikan metode pencatatan manual dengan sistem digital modern.</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-10">
-                <div>
-                    <h3 class="text-xl font-semibold text-primary-dark mb-3"><i class="fas fa-cogs text-accent mr-2"></i> Teknologi</h3>
-                    <p class="text-gray-custom">Dibangun dengan Flutter & Firebase, menjamin performa lintas platform dan keamanan data berstandar tinggi.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-primary-dark mb-3"><i class="fas fa-hand-holding-heart text-accent mr-2"></i> Manfaat</h3>
-                    <p class="text-gray-custom">Meningkatkan transparansi kehadiran petani, meminimalisir kecurangan absensi, dan memudahkan evaluasi kinerja harian.</p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-primary-dark mb-3"><i class="fas fa-question-circle text-accent mr-2"></i> Cara Install APK</h3>
-                    <ol class="list-decimal list-inside text-gray-custom space-y-1">
-                        <li>Download file .apk dari tombol di atas</li>
-                        <li>Buka file manager dan temukan file APK</li>
-                        <li>Izinkan instalasi dari sumber tidak dikenal (muncul popup)</li>
-                        <li>Tunggu proses instalasi selesai, lalu buka aplikasi</li>
-                    </ol>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-primary-dark mb-3"><i class="fas fa-headset text-accent mr-2"></i> Dukungan</h3>
-                    <p class="text-gray-custom">Butuh bantuan? Tim support siap membantu via email: <a href="mailto:support@presensiapps.com" class="text-primary hover:underline">support@presensiapps.com</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-primary-dark text-white pt-12 pb-6 border-t border-primary/30">
-        <div class="container mx-auto px-5">
-            <div class="flex flex-col md:flex-row justify-between gap-8">
-                <div class="max-w-xs">
-                    <div class="flex items-center gap-2 mb-4">
-                        <i class="fas fa-leaf text-soft text-2xl"></i>
-                        <span class="font-bold text-xl">Presensi<span class="text-soft">Apps</span></span>
-                    </div>
-                    <p class="text-light/70 text-sm">Membantu transformasi digital pertanian melalui presensi cerdas & analitik realtime.</p>
-                </div>
-                <div class="flex flex-wrap gap-12">
+                <!-- Statistik Mini -->
+                <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto pt-8 border-t border-[#D1DBCB]">
                     <div>
-                        <h4 class="font-semibold mb-3 text-soft">Tautan</h4>
-                        <ul class="space-y-2 text-sm text-light/70">
-                            <li><a href="#features" class="footer-link">Fitur</a></li>
-                            <li><a href="#download" class="footer-link">Download</a></li>
-                            <li><a href="#" class="footer-link">Kebijakan Privasi</a></li>
-                        </ul>
+                        <div class="text-2xl font-bold text-[#1F5235]">2.500+</div>
+                        <div class="text-xs text-[#8E9A89] mt-1">Petani Terdaftar</div>
                     </div>
                     <div>
-                        <h4 class="font-semibold mb-3 text-soft">Unduh</h4>
-                        <ul class="space-y-2 text-sm text-light/70">
-                            <li><a href="#" class="footer-link">APK Release (arm64)</a></li>
-                            <li><a href="#" class="footer-link">Catatan Rilis v1.0</a></li>
-                        </ul>
+                        <div class="text-2xl font-bold text-[#1F5235]">87%</div>
+                        <div class="text-xs text-[#8E9A89] mt-1">Efisiensi Kerja</div>
                     </div>
                     <div>
-                        <h4 class="font-semibold mb-3 text-soft">Kontak</h4>
-                        <ul class="space-y-2 text-sm text-light/70">
-                            <li><i class="far fa-envelope mr-2"></i> hello@presensiapps.com</li>
-                            <li><i class="fab fa-github mr-2"></i> github.com/presensiapps</li>
-                        </ul>
+                        <div class="text-2xl font-bold text-[#1F5235]">30+</div>
+                        <div class="text-xs text-[#8E9A89] mt-1">Kelompok Tani</div>
                     </div>
-                </div>
-            </div>
-            <div class="border-t border-primary/40 mt-10 pt-6 text-center text-light/50 text-xs">
-                &copy; 2026 PresensiApps — Aplikasi Presensi untuk Mandor & Petani. Hak Cipta Dilindungi.
+                    <div>
+                        <div class="text-2xl font-bold text-[#1F5235]">4.9</div>
+                        <div class="text-xs text-[#8E9A89] mt-1">Rating Pengguna</div>
+                    </div>
+                </div> -->
             </div>
         </div>
-    </footer>
+    </section>
+
+ 
+
+    <!-- Footer Minimal -->
+    <!-- <footer class="bg-[#1F5235] text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <i class="fab fa-github text-[#8FC0A9] hover:text-white transition cursor-pointer"></i>
+                <i class="fab fa-instagram text-[#8FC0A9] hover:text-white transition cursor-pointer"></i>
+                <i class="fab fa-whatsapp text-[#8FC0A9] hover:text-white transition cursor-pointer"></i>
+            </div>
+            <p class="text-[#C8E6D9] text-sm">&copy; 2026 PresensiApps — Aplikasi Presensi untuk Mandor & Petani</p>
+            <p class="text-[#8E9A89] text-xs mt-2">support@presensiapps.com</p>
+        </div>
+    </footer> -->
+
     <script>
-        // Smooth scroll untuk anchor links
+        // Update link download dengan URL APK dari GitHub Release
+        // Ganti '#' dengan link APK mu setelah upload ke GitHub Release
+        const downloadBtns = document.querySelectorAll('#download a, .hero .btn-primary');
+        const apkUrl = 'https://github.com/fatkhurrhn/presensi-apk/releases/download/v1.0.0/app-release.apk'; // <-- Ganti dengan link APK (contoh: https://github.com/username/repo/releases/download/v1.0.0/app-release.apk)
+
+        downloadBtns.forEach(btn => {
+            if (btn.getAttribute('href') === '#' || btn.getAttribute('href') === '#download') {
+                btn.setAttribute('href', apkUrl);
+            }
+            btn.setAttribute('download', '');
+        });
+
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#' || href === '#download') return;
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if(target) {
+                if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
-        // Pesan untuk tombol download (demo alert, nanti akan diarahkan ke link APK sebenarnya)
-        const downloadBtn = document.querySelector("#download .btn-primary, .hero .btn-primary");
-        if(downloadBtn) {
-            downloadBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                // Kamu bisa ubah link ini ke URL APK yang sudah diupload di Github Release atau vercel/public
-                // Contoh: window.location.href = "https://github.com/username/petani_global_app/releases/download/v1.0/app-release.apk";
-                alert("🚀 APK akan segera diunduh. Pastikan file APK tersedia di folder release atau sesuaikan link.");
-                // Untuk mengarahkan ke APK (setelah kamu deploy): 
-                // window.location.href = "path/to/your/app-release.apk";
-            });
-        }
     </script>
 </body>
+
 </html>
